@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Денис Голубев | Специалист по Яндекс.Директ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Общие стили */
+    :root {
+      --primary: #d2b48c;
+      --primary-dark: #b89464;
+      --dark: #121212;
+      --darker: #0a0a0a;
+      --light: #f0f0f0;
+      --gray: #2a2a2a;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin-bottom: 0.8em;
+      font-weight: 600;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, var(--primary), #f0d0a0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+    
+    p {
+      margin-bottom: 1.2em;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    a:hover {
+      color: #f0d0a0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+    }
+    
+    .section-title h2:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--darker);
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(210, 180, 140, 0.2);
+      color: var(--darker);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--darker);
+    }
+    
+    /* Анимации */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .animate-fade {
+      animation: fadeIn 1s ease forwards;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    /* Блок знакомства */
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 50px;
+      padding: 100px 0;
+    }
+    
+    .intro-image {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+    
+    .intro-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+    }
+    
+    .intro-image:hover img {
+      transform: scale(1.03);
+    }
+    
+    .intro-image:after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: 20px;
+      bottom: 20px;
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      z-index: -1;
+    }
+    
+    .intro-content {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .intro-content p {
+      font-size: 1.1rem;
+    }
+    
+    .contacts {
+      margin: 25px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(210, 180, 140, 0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    
+    .contact-item:hover {
+      background: rgba(210, 180, 140, 0.2);
+      transform: translateY(-3px);
+    }
+    
+    .contact-item i {
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+    
+    /* Блок маркетинга */
+    .marketing {
+      background: var(--darker);
+      position: relative;
+    }
+    
+    .marketing:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 20%, rgba(210, 180, 140, 0.05) 0%, transparent 50%);
+    }
+    
+    .marketing-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .marketing-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .point-card {
+      background: var(--gray);
+      padding: 30px;
+      border-radius: 15px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .point-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--primary);
+    }
+    
+    .point-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .point-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .point-card i {
+      color: var(--primary);
+    }
+    
+    /* Блок услуг */
+    .services {
+      position: relative;
+    }
+    
+    .services:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 70% 20%, rgba(210, 180, 140, 0.05) 0%, transparent 50%);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background: var(--gray);
+      border-radius: 15px;
+      padding: 30px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--primary);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .service-card h3 {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .service-card i {
+      color: var(--primary);
+    }
+    
+    .price {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    
+    /* Блок процесса работы */
+    .process {
+      background: var(--darker);
+      position: relative;
+    }
+    
+    .process:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 80%, rgba(210, 180, 140, 0.05) 0%, transparent 50%);
+    }
+    
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .step {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--gray);
+      border-radius: 15px;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .step:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: var(--darker);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0 auto 20px;
+    }
+    
+    .step h3 {
+      margin-bottom: 15px;
+    }
+    
+    /* Блок гарантий */
+    .guarantees {
+      position: relative;
+    }
+    
+    .guarantees-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .guarantee-card {
+      background: var(--gray);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    
+    .guarantee-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .guarantee-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(210, 180, 140, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+    
+    /* Футер */
+    footer {
+      background: var(--darker);
+      padding: 50px 0 30px;
+      text-align: center;
+      border-top: 1px solid var(--gray);
+    }
+    
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .footer-link {
+      width: 40px;
+      height: 40px;
+      background: var(--gray);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .footer-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+    
+    .footer-link:hover i {
+      color: var(--darker);
+    }
+    
+    .copyright {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .intro {
+        padding: 60px 0;
+        text-align: center;
+      }
+      
+      .intro-image:after {
+        display: none;
+      }
+      
+      .contacts {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Блок 1: Знакомство -->
+  <section class="intro">
+    <div class="container">
+    	<div class="intro-image animate-float">
+        <img src="https://i.ibb.co/5tdrNt2/avito-1759130888621-shot.jpg" alt="Фото Дениса Голубева">
+      </div>
+      <div class="intro-content animate-fade">
+        <h1>Голубев Денис Михайлович</h1>
+        
+        
+        <div class="contacts">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span><a href="tel:+79001100333">8 (900) 110-03-33<a></span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:pro.marketing.lab@mail.ru">pro.marketing.lab@mail.ru</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-telegram"></i>
+            <a href="https://t.me/golubev_pro_marketing">@golubev_pro_marketing</a>
+          </div>
+        </div>
+        
+        <p>Привет! Меня зовут Денис. Я не просто настраиваю рекламу, а решаю бизнес-задачи: привлекаю клиентов, увеличиваю продажи и обеспечиваю окупаемость каждого вложенного рубля.</p>
+        <p>Мой путь в маркетинге начался не с университета, а с реальных продаж. В 16 лет я уже работал в продажах и понимал, как думает клиент. Это бесценный опыт, который позволяет мне настраивать рекламу, которая не просто кликается, а продает.</p>
+        <p>Мой ключевой навык — это результат. В 18 лет я запустил проект, который коллеги называли «перелидосом». Глубоко разобравшись в аналитике и метриках, я настроил рекламные кампании, которые не просто окупились, а принесли компании значительную прибыль. С тех пор я довел до результата десятки проектов, в том числе для крупных компаний в b2b-сегменте.</p>
+        <p>Что это значит для вас? Я беру на себя полную ответственность за ваш трафик. Вы получаете не просто отчеты по рекламе, а четкую связку: «вложили X рублей — получили Y клиентов с целевой стоимостью».</p>
+        
+        <a href="#contact" class="btn" style="margin-top: 20px;">Обсудить ваш проект</a>
+      </div>
+      
+      
+    </div>
+  </section>
+  
+  <!-- Блок 2: Маркетинг -->
+  <section class="marketing">
+    <div class="container">
+      <div class="section-title">
+        <h2>Маркетинг и Яндекс.Директ</h2>
+        <p>Понятно о сложном: как работает реклама и почему она приносит результат</p>
+      </div>
+      
+      <div class="marketing-content animate-fade">
+        <p>Многие думают, что маркетинг — это волшебная кнопка «включить продажи». На самом деле, это стратегический процесс, который соединяет ваш продукт с людьми, которые в нем нуждаются. И Яндекс.Директ — один из самых эффективных инструментов для этого.</p>
+        
+        <p>В основе успешной рекламной кампании лежит не шаблонный подход, а глубокое понимание вашего бизнеса, целевой аудитории и конкретных целей. Мы вместе определяем, чего вы хотите достичь: больше заявок, увеличение продаж, повышение узнаваемости бренда. Затем я создаю кампанию, которая точно соответствует этим целям.</p>
+        
+        <div class="marketing-points">
+          <div class="point-card animate-fade">
+            <h3><i class="fas fa-chart-line"></i> Прозрачность и отчетность</h3>
+            <p>Вы всегда будете видеть, куда уходят ваши деньги и какой результат они приносят. Я предоставляю понятные отчеты с ключевыми метриками: ROI, стоимость привлечения клиента, количество и качество лидов.</p>
+          </div>
+          
+          <div class="point-card animate-fade">
+            <h3><i class="fas fa-bullseye"></i> Точное попадание в аудиторию</h3>
+            <p>Я не работаю по шаблонам. Каждая кампания настраивается индивидуально под ваш бизнес. Мы используем не только поиск и РСЯ, но и ретаргетинг — чтобы напоминать о себе тем, кто уже интересовался вашими товарами или услугами.</p>
+          </div>
+          
+          <div class="point-card animate-fade">
+            <h3><i class="fas fa-flask"></i> Тестирование и оптимизация</h3>
+            <p>Маркетинг — это не «включил и забыл». Это постоянный процесс тестирования гипотез, анализа данных и улучшения результатов. Я провожу A/B тесты, чтобы найти самые эффективные объявления и подходы.</p>
+          </div>
+          
+          <div class="point-card animate-fade">
+            <h3><i class="fas fa-shield-alt"></i> Безопасность и надежность</h3>
+            <p>Я строго соблюдаю правила Яндекс.Директ и законодательство РФ. Ваши данные и доступы в полной безопасности. Все условия нашей работы четко прописаны в договоре.</p>
+          </div>
+        </div>
+        
+        <p style="margin-top: 30px;">Не верьте тем, кто обещает мгновенные результаты. Качественный маркетинг требует времени на тесты и оптимизацию. Но уже через неделю после запуска вы увидите первые результаты, а через месяц — стабильный поток целевых клиентов.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Блок 3: Услуги -->
+  <section class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Услуги</h2>
+        <p>Комплексный подход к настройке и ведению рекламных кампаний</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card animate-fade">
+          <h3><i class="fas fa-search"></i> Аудит</h3>
+          <p>Бесплатная комплексная проверка уже созданной или планируемой рекламной кампании. Включает анализ сайта/лендинга, баннеров, ключевых слов и стратегии. Помогает выявить слабые места и определить потенциал для роста.</p>
+          <div class="price">Бесплатно</div>
+          <a href="#contact" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Заказать аудит</a>
+        </div>
+        
+        <div class="service-card animate-fade">
+          <h3><i class="fas fa-cogs"></i> Первичная настройка</h3>
+          <p>Полная настройка кампании в Яндекс.Директ: поиск, РСЯ, ретаргетинг. Включает подбор ключевых слов, минус-слов, создание объявлений и стратегии ставок. Рекомендуется предварительный аудит для оценки релевантности.</p>
+          <div class="price">5 600 ₽</div>
+          <a href="#contact" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Заказать настройку</a>
+        </div>
+        
+        <div class="service-card animate-fade">
+          <h3><i class="fas fa-chart-bar"></i> Сопровождение</h3>
+          <p>Постоянное ведение и оптимизация рекламных кампаний. Включает A/B тестирование, оптимизацию, масштабирование успешных стратегий, снижение стоимости клиента и поддержание стабильных результатов.</p>
+          <div class="price">10 000 ₽ / месяц</div>
+          <a href="#contact" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Обсудить сопровождение</a>
+        </div>
+        
+        <div class="service-card animate-fade">
+          <h3><i class="fas fa-graduation-cap"></i> Обучение</h3>
+          <p>Индивидуальные занятия по настройке и ведению рекламных кампаний в Яндекс.Директ. Вы научитесь проводить A/B тесты, анализировать метрики, оптимизировать кампании и понимать основы маркетинга.</p>
+          <div class="price">2 000 ₽ / час</div>
+          <a href="#contact" class="btn btn-outline" style="margin-top: 15px; display: inline-block;">Записаться на обучение</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Блок 4: Процесс работы -->
+  <section class="process">
+    <div class="container">
+      <div class="section-title">
+        <h2>Как мы будем работать</h2>
+        <p>Прозрачный и понятный процесс от первого контакта до результата</p>
+      </div>
+      
+      <div class="process-steps">
+        <div class="step animate-fade">
+          <div class="step-number">1</div>
+          <h3>Консультация и аудит</h3>
+          <p>Мы знакомимся, обсуждаем ваши цели и задачи. При необходимости проводим бесплатный аудит текущей ситуации.</p>
+        </div>
+        
+        <div class="step animate-fade">
+          <div class="step-number">2</div>
+          <h3>Стратегия и договор</h3>
+          <p>Разрабатываем стратегию, определяем KPI и подписываем договор ГПХ с четкими условиями и гарантиями.</p>
+        </div>
+        
+        <div class="step animate-fade">
+          <div class="step-number">3</div>
+          <h3>Настройка и запуск</h3>
+          <p>Настраиваю и запускаю рекламные кампании. Этот этап занимает от 3 до 10 дней в зависимости от сложности.</p>
+        </div>
+        
+        <div class="step animate-fade">
+          <div class="step-number">4</div>
+          <h3>Анализ и оптимизация</h3>
+          <p>Анализируем первые результаты, проводим тесты и оптимизируем кампании для максимальной эффективности.</p>
+        </div>
+        
+        <div class="step animate-fade">
+          <div class="step-number">5</div>
+          <h3>Отчетность и масштабирование</h3>
+          <p>Предоставляю прозрачные отчеты и, при успешных результатах, масштабируем кампании для увеличения охвата.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Блок 5: Гарантии -->
+  <section class="guarantees">
+    <div class="container">
+      <div class="section-title">
+        <h2>Мои гарантии</h2>
+        <p>Что вы получаете, работая со мной</p>
+      </div>
+      
+      <div class="guarantees-grid">
+        <div class="guarantee-card animate-fade">
+          <div class="guarantee-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h3>Договор ГПХ</h3>
+          <p>Четко прописанные условия работы, сроки, стоимость и гарантии. Все прозрачно и юридически защищено.</p>
+        </div>
+        
+        <div class="guarantee-card animate-fade">
+          <div class="guarantee-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Гарантия качества</h3>
+          <p>Я беру ответственность за результат и работаю до тех пор, пока вы не будете довольны итогом.</p>
+        </div>
+        
+        <div class="guarantee-card animate-fade">
+          <div class="guarantee-icon">
+            <i class="fas fa-chart-pie"></i>
+          </div>
+          <h3>Прозрачная отчетность</h3>
+          <p>Понятные отчеты на простом языке без сложных терминов. Вы всегда видите, за что платите.</p>
+        </div>
+        
+        <div class="guarantee-card animate-fade">
+          <div class="guarantee-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Поддержка 24/7</h3>
+          <p>Я на связи с 7:00 до 22:00 без выходных. Все вопросы решаются оперативно и без задержек.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Футер -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <h2>Готовы сделать вашу рекламу прибыльной?</h2>
+        <p>Свяжитесь со мной любым удобным способом, и мы обсудим ваш проект</p>
+        
+        <div class="contacts" style="justify-content: center; margin: 30px 0;">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span><a href="tel:+79001100333">8 (900) 110-03-33</a></span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:pro.marketing.lab@mail.ru">pro.marketing.lab@mail.ru</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-telegram"></i>
+            <a href="https://t.me/golubev_pro_marketing">@golubev_pro_marketing</a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <a href="https://t.me/golubev_pro_marketing" class="footer-link">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="mailto:pro.marketing.lab@mail.ru" class="footer-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="tel:89001100333" class="footer-link">
+            <i class="fas fa-phone"></i>
+          </a>
+        </div>
+        
+        <div class="copyright">
+          © 2025 Денис Голубев. Все права защищены.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Простая анимация появления элементов при скролле
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate-fade');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
