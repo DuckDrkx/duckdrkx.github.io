@@ -1,0 +1,2629 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bracnis - Студия веб-разработки и настройки рекламы в Твери</title>
+    <meta
+      name="description"
+      content="Bracnis - профессиональная студия веб-разработки и настройки контекстной рекламы в Твери. Создание сайтов под ключ, настройка Яндекс.Директ, Instagram, Telegram Ads."
+    />
+    <meta
+      name="keywords"
+      content="bracnis, создание сайтов Тверь, настройка рекламы, Яндекс.Директ, Instagram, Telegram Ads, веб-студия, контекстная реклама, digital маркетинг"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Bracnis Studio" />
+    <meta
+      property="og:title"
+      content="Bracnis - Профессиональная студия веб-разработки"
+    />
+    <meta
+      property="og:description"
+      content="Создание сайтов и настройка рекламы для вашего бизнеса"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #1a1a2e;
+        --secondary: #16213e;
+        --accent: #0f3460;
+        --gold: #e94560;
+        --light: #f1f1f1;
+        --dark: #0f0f1e;
+        --gray: #2d2d44;
+        --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        --glass: rgba(26, 26, 46, 0.85);
+        --gradient: linear-gradient(135deg, #0f3460, #16213e, #1a1a2e);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.7;
+        color: var(--light);
+        background: var(--dark);
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Анимация фона - бизнес частицы */
+      .background-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: var(--gradient);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Частицы бизнес анимации */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: floatParticle 20s linear infinite;
+        background: radial-gradient(circle, var(--gold), transparent);
+        box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+      }
+
+      .particle:nth-child(3n + 1) {
+        background: radial-gradient(circle, #0f3460, transparent);
+        box-shadow: 0 0 20px rgba(15, 52, 96, 0.3);
+      }
+
+      .particle:nth-child(3n + 2) {
+        background: radial-gradient(circle, #e94560, transparent);
+        box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+      }
+
+      .particle:nth-child(3n + 3) {
+        background: radial-gradient(circle, #16213e, transparent);
+        box-shadow: 0 0 20px rgba(22, 33, 62, 0.3);
+      }
+
+      @keyframes floatParticle {
+        0% {
+          transform: translateY(100vh) translateX(0) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.15;
+        }
+        90% {
+          opacity: 0.15;
+        }
+        100% {
+          transform: translateY(-100px) translateX(100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Плавающие элементы */
+      .floating-element {
+        position: absolute;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        animation: floatElement 25s ease-in-out infinite;
+      }
+
+      @keyframes floatElement {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+          transform: translate(20px, -20px) rotate(5deg);
+        }
+        50% {
+          transform: translate(-15px, 15px) rotate(-5deg);
+        }
+        75% {
+          transform: translate(10px, -10px) rotate(3deg);
+        }
+      }
+
+      /* Секции */
+      .section {
+        min-height: 100vh;
+        padding: 120px 20px;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Навигация - премиум стиль */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(15, 15, 30, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(233, 69, 96, 0.1);
+        transition: var(--transition);
+      }
+
+      .header-scrolled {
+        padding: 12px 0;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--gold);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      .logo::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--accent));
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .logo:hover::after {
+        transform: scaleX(1);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .nav-link {
+        font-family: "Inter", sans-serif;
+        text-decoration: none;
+        color: var(--light);
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+        transition: var(--transition);
+        position: relative;
+        padding: 8px 0;
+        text-transform: uppercase;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::before {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: var(--gold);
+      }
+
+      .phone-link {
+        font-weight: 600;
+        font-size: 17px;
+        color: var(--gold);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 20px;
+        background: rgba(233, 69, 96, 0.1);
+        border-radius: 25px;
+        border: 1px solid rgba(233, 69, 96, 0.2);
+      }
+
+      .phone-link:hover {
+        background: rgba(233, 69, 96, 0.2);
+        transform: translateY(-2px);
+      }
+
+      .cta-button {
+        background: linear-gradient(135deg, var(--accent), var(--gold));
+        color: white;
+        border: none;
+        padding: 14px 34px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(233, 69, 96, 0.25);
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(233, 69, 96, 0.35);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .mobile-menu-btn span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--gold);
+        margin: 5px auto;
+        transition: var(--transition);
+        position: absolute;
+        left: 7px;
+      }
+
+      .mobile-menu-btn span:nth-child(1) {
+        top: 12px;
+      }
+      .mobile-menu-btn span:nth-child(2) {
+        top: 19px;
+      }
+      .mobile-menu-btn span:nth-child(3) {
+        top: 26px;
+      }
+
+      .mobile-menu-btn.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 19px;
+      }
+
+      .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-btn.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 19px;
+      }
+
+      /* Герой секция - премиум */
+      .hero {
+        padding-top: 180px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(233, 69, 96, 0.05),
+          rgba(15, 52, 96, 0.05)
+        );
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 30% 0);
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .hero-text h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--light);
+        margin-bottom: 30px;
+      }
+
+      .hero-highlight {
+        color: var(--gold);
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero-highlight::after {
+        content: "";
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: rgba(233, 69, 96, 0.2);
+        z-index: -1;
+      }
+
+      .typewriter-container {
+        height: 70px;
+        overflow: hidden;
+        margin-bottom: 40px;
+      }
+
+      .typewriter-text {
+        font-size: 20px;
+        color: var(--gold);
+        font-weight: 500;
+        display: inline-block;
+        border-right: 2px solid var(--gold);
+        white-space: nowrap;
+        overflow: hidden;
+        animation:
+          typing 4s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--gold);
+        }
+      }
+
+      .price-tag {
+        background: linear-gradient(135deg, var(--secondary), var(--gray));
+        color: white;
+        padding: 30px 40px;
+        border-radius: 20px;
+        display: inline-block;
+        margin: 40px 0;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(233, 69, 96, 0.2);
+      }
+
+      .price-tag::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--gold),
+          var(--accent),
+          var(--gold)
+        );
+      }
+
+      .old-price {
+        text-decoration: line-through;
+        opacity: 0.7;
+        font-size: 22px;
+        display: block;
+      }
+
+      .new-price {
+        font-size: 52px;
+        font-weight: 700;
+        color: var(--gold);
+        display: block;
+        margin: 10px 0;
+      }
+
+      .deadline {
+        font-size: 14px;
+        opacity: 0.8;
+        letter-spacing: 1px;
+      }
+
+      .benefits {
+        list-style: none;
+        margin: 40px 0;
+      }
+
+      .benefits li {
+        margin: 20px 0;
+        padding-left: 40px;
+        position: relative;
+        font-size: 18px;
+        color: var(--light);
+      }
+
+      .benefits li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 28px;
+        height: 28px;
+        background: var(--gold);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .contact-form {
+        background: rgba(26, 26, 46, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 50px;
+        border-radius: 25px;
+        box-shadow: var(--shadow);
+        position: relative;
+        border: 1px solid rgba(233, 69, 96, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 30px;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 12px;
+        font-weight: 500;
+        color: var(--light);
+        font-size: 15px;
+        letter-spacing: 0.5px;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 18px 25px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        font-size: 16px;
+        transition: var(--transition);
+        background: rgba(255, 255, 255, 0.05);
+        font-family: "Inter", sans-serif;
+        color: var(--light);
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+      }
+
+      .form-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .privacy-text {
+        font-size: 13px;
+        color: var(--light);
+        opacity: 0.7;
+        margin-top: 25px;
+        line-height: 1.6;
+      }
+
+      .privacy-link {
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .privacy-link:hover {
+        border-bottom-color: var(--gold);
+      }
+
+      /* Секция "Кто мы" */
+      .about-section {
+        position: relative;
+      }
+
+      .about-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+      }
+
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 56px;
+        text-align: center;
+        color: var(--light);
+        margin-bottom: 80px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), var(--accent));
+      }
+
+      .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        font-size: 19px;
+        line-height: 1.9;
+        margin-bottom: 50px;
+        color: var(--light);
+        position: relative;
+        padding: 40px;
+        background: rgba(26, 26, 46, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--gold);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: var(--transition);
+      }
+
+      .about-text.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Секция "Что мы делаем" */
+      .services-section {
+        position: relative;
+      }
+
+      .services-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+      }
+
+      .services-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .services-divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        margin: 60px auto;
+        max-width: 1000px;
+      }
+
+      /* Инновационные карточки услуг */
+      .services-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        margin-bottom: 100px;
+      }
+
+      .service-card {
+        background: rgba(26, 26, 46, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(233, 69, 96, 0.1);
+        transition: var(--transition);
+        transform: translateY(60px);
+        opacity: 0;
+      }
+
+      .service-card.visible {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .service-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        border-color: rgba(233, 69, 96, 0.3);
+        background: rgba(26, 26, 46, 0.8);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--accent), var(--gold));
+      }
+
+      .service-icon {
+        font-size: 54px;
+        margin-bottom: 25px;
+        color: var(--gold);
+        display: inline-block;
+        padding: 15px;
+        background: rgba(233, 69, 96, 0.1);
+        border-radius: 15px;
+      }
+
+      .service-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: var(--light);
+        margin-bottom: 20px;
+      }
+
+      .service-description {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      /* Тарифы - премиум дизайн */
+      .tariffs-section {
+        position: relative;
+      }
+
+      .tariffs-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 35px;
+        margin-top: 60px;
+      }
+
+      .tariff-card {
+        background: rgba(26, 26, 46, 0.6);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        transition: var(--transition);
+        transform: scale(0.95);
+        opacity: 0;
+        border: 1px solid rgba(233, 69, 96, 0.1);
+      }
+
+      .tariff-card.visible {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      .tariff-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        background: rgba(26, 26, 46, 0.8);
+      }
+
+      .tariff-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--gold);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        z-index: 2;
+      }
+
+      .tariff-header {
+        padding: 40px 30px;
+        color: white;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tariff-1 .tariff-header {
+        background: linear-gradient(135deg, var(--primary), #242440);
+      }
+      .tariff-2 .tariff-header {
+        background: linear-gradient(135deg, var(--accent), #1a3a6b);
+      }
+      .tariff-3 .tariff-header {
+        background: linear-gradient(135deg, var(--dark), #1a1a2e);
+      }
+      .tariff-4 .tariff-header {
+        background: linear-gradient(135deg, var(--gold), #d13a55);
+      }
+      .tariff-5 .tariff-header {
+        background: linear-gradient(135deg, var(--secondary), #1d2a52);
+      }
+
+      .tariff-name {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .tariff-price {
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .tariff-period {
+        font-size: 16px;
+        opacity: 0.9;
+        position: relative;
+        z-index: 2;
+      }
+
+      .tariff-body {
+        padding: 40px 30px;
+      }
+
+      .tariff-description {
+        color: var(--gold);
+        margin-bottom: 30px;
+        font-weight: 500;
+        font-size: 17px;
+      }
+
+      .tariff-features {
+        list-style: none;
+        margin-bottom: 40px;
+      }
+
+      .tariff-features li {
+        margin: 18px 0;
+        padding-left: 35px;
+        position: relative;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .tariff-features li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      /* FAQ секция */
+      .faq-section {
+        position: relative;
+      }
+
+      .faq-showcase {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: rgba(26, 26, 46, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(233, 69, 96, 0.1);
+        transition: var(--transition);
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .faq-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .faq-item:hover {
+        border-color: rgba(233, 69, 96, 0.3);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        background: rgba(26, 26, 46, 0.7);
+      }
+
+      .faq-question {
+        padding: 30px;
+        font-size: 19px;
+        font-weight: 600;
+        color: var(--light);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+        background: transparent;
+      }
+
+      .faq-question:hover {
+        background: rgba(233, 69, 96, 0.05);
+      }
+
+      .faq-icon {
+        font-size: 24px;
+        color: var(--gold);
+        transition: var(--transition);
+        flex-shrink: 0;
+        margin-left: 20px;
+      }
+
+      .faq-answer {
+        padding: 0 30px;
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 30px 30px 30px;
+        max-height: 500px;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+      }
+
+      /* Контактная форма */
+      .contact-section {
+        background: linear-gradient(135deg, var(--dark), var(--primary));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23E94560' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+      }
+
+      .contact-section .section-title {
+        color: white;
+      }
+
+      .contact-form-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 60px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Футер */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 80px 0 40px;
+        position: relative;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+
+      .footer-logo {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: white;
+      }
+
+      .footer-description {
+        opacity: 0.8;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .footer-heading {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: var(--gold);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin: 15px 0;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold);
+        transform: translateX(5px);
+      }
+
+      .copyright {
+        margin-top: 60px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.6);
+        text-align: center;
+      }
+
+      /* Анимации появления */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: var(--transition);
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Сообщения форм */
+      .message {
+        padding: 20px 25px;
+        border-radius: 15px;
+        margin-top: 25px;
+        text-align: center;
+        font-weight: 500;
+        animation: fadeIn 0.5s ease;
+        display: none;
+      }
+
+      .message.success {
+        background: rgba(45, 167, 97, 0.1);
+        color: #2da761;
+        border: 1px solid rgba(45, 167, 97, 0.2);
+        display: block;
+      }
+
+      .message.error {
+        background: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        border: 1px solid rgba(220, 53, 69, 0.2);
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .loader {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Адаптивность */
+      @media (max-width: 1200px) {
+        .container,
+        .nav-container {
+          padding: 0 30px;
+        }
+
+        .hero-text h1 {
+          font-size: 56px;
+        }
+
+        .section-title {
+          font-size: 48px;
+        }
+
+        .nav-links {
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 60px;
+          text-align: center;
+        }
+
+        .hero::before {
+          display: none;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .mobile-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 320px;
+          height: 100vh;
+          background: var(--dark);
+          padding: 100px 40px 40px;
+          box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+          transition: var(--transition);
+          z-index: 1000;
+          overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+          right: 0;
+        }
+
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 25px;
+        }
+
+        .mobile-nav-link {
+          text-decoration: none;
+          color: var(--light);
+          font-size: 18px;
+          font-weight: 500;
+          padding: 15px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          transition: var(--transition);
+          display: flex;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .mobile-nav-link i {
+          width: 24px;
+          text-align: center;
+          color: var(--gold);
+        }
+
+        .mobile-nav-link:hover {
+          color: var(--gold);
+          padding-left: 10px;
+        }
+
+        .section-title {
+          font-size: 42px;
+        }
+
+        .services-showcase {
+          grid-template-columns: 1fr;
+        }
+
+        .tariffs-showcase {
+          grid-template-columns: 1fr;
+          max-width: 500px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          padding: 100px 20px;
+        }
+
+        .container,
+        .nav-container {
+          padding: 0 20px;
+        }
+
+        .hero {
+          padding-top: 150px;
+        }
+
+        .hero-text h1 {
+          font-size: 42px;
+        }
+
+        .price-tag {
+          padding: 25px 30px;
+        }
+
+        .new-price {
+          font-size: 42px;
+        }
+
+        .contact-form,
+        .contact-form-container {
+          padding: 30px;
+        }
+
+        .section-title {
+          font-size: 36px;
+          margin-bottom: 60px;
+        }
+
+        .about-text {
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-text h1 {
+          font-size: 36px;
+        }
+
+        .new-price {
+          font-size: 36px;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .tariff-price {
+          font-size: 36px;
+        }
+
+        .service-card,
+        .tariff-body {
+          padding: 30px 20px;
+        }
+
+        .contact-form,
+        .contact-form-container {
+          padding: 25px 20px;
+        }
+      }
+
+      /* Утилиты */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* Сетка точек */
+      .grid-dots {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          rgba(233, 69, 96, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
+        z-index: -1;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Анимация фона -->
+    <div class="background-animation"></div>
+    <div class="grid-dots"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Плавающие элементы -->
+    <div
+      class="floating-element"
+      style="width: 200px; height: 200px; top: 10%; left: 5%"
+    ></div>
+    <div
+      class="floating-element"
+      style="width: 150px; height: 150px; top: 60%; right: 8%"
+    ></div>
+    <div
+      class="floating-element"
+      style="width: 100px; height: 100px; bottom: 20%; left: 15%"
+    ></div>
+
+    <!-- Навигация -->
+    <header id="header">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <span>Bracnis</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#who-we-are" class="nav-link">Кто мы?</a>
+          <a href="#what-we-do" class="nav-link">Что мы делаем</a>
+          <a href="#how-we-work" class="nav-link">Как мы работаем</a>
+          <a href="#articles" class="nav-link">Статьи</a>
+          <a href="tel:+79001100333" class="phone-link">
+            <i class="fas fa-phone-alt"></i>
+            +7 900 110 03 33
+          </a>
+          <button class="cta-button" onclick="scrollToContact()">
+            Оставить заявку
+          </button>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-nav-links">
+        <a
+          href="#who-we-are"
+          class="mobile-nav-link"
+          onclick="closeMobileMenu()"
+        >
+          <i class="fas fa-users"></i>
+          Кто мы?
+        </a>
+        <a
+          href="#what-we-do"
+          class="mobile-nav-link"
+          onclick="closeMobileMenu()"
+        >
+          <i class="fas fa-tasks"></i>
+          Что мы делаем
+        </a>
+        <a
+          href="#how-we-work"
+          class="mobile-nav-link"
+          onclick="closeMobileMenu()"
+        >
+          <i class="fas fa-cogs"></i>
+          Как мы работаем
+        </a>
+        <a href="#articles" class="mobile-nav-link" onclick="closeMobileMenu()">
+          <i class="fas fa-newspaper"></i>
+          Статьи
+        </a>
+        <a
+          href="tel:+79001100333"
+          class="mobile-nav-link"
+          onclick="closeMobileMenu()"
+        >
+          <i class="fas fa-phone-alt"></i>
+          +7 900 110 03 33
+        </a>
+        <button
+          class="cta-button"
+          onclick="
+            scrollToContact();
+            closeMobileMenu();
+          "
+          style="margin-top: 30px; width: 100%"
+        >
+          <i class="fas fa-paper-plane"></i>
+          Оставить заявку
+        </button>
+      </div>
+    </div>
+
+    <!-- Герой секция -->
+    <section class="section hero" id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>
+              Изготовление сайта под ключ
+              <span class="hero-highlight">в Твери</span>
+            </h1>
+
+            <div class="typewriter-container">
+              <div class="typewriter-text">
+                Премиум решения для вашего бизнеса
+              </div>
+            </div>
+
+            <div class="price-tag">
+              <span class="old-price">12 200 ₽</span>
+              <span class="new-price">9 600 ₽</span>
+              <span class="deadline">До конца недели</span>
+            </div>
+
+            <ul class="benefits">
+              <li>Под любой бюджет от 3 дней</li>
+              <li>От простого до сложного</li>
+              <li>Подберем решение для вас</li>
+              <li>Пожизненная поддержка</li>
+            </ul>
+
+            <button class="cta-button" onclick="scrollToContact()">
+              <i class="fas fa-headset"></i>
+              Получить консультацию
+            </button>
+          </div>
+
+          <div class="contact-form animate-on-scroll">
+            <h3
+              style="
+                color: var(--light);
+                margin-bottom: 35px;
+                font-size: 28px;
+                font-family: &quot;Cormorant Garamond&quot;, serif;
+              "
+            >
+              <i class="fas fa-envelope"></i>
+              Оставьте заявку
+            </h3>
+            <form id="mainForm">
+              <div class="form-group">
+                <label class="form-label">Ваше имя</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="name"
+                  required
+                  placeholder="Иван Иванов"
+                  pattern="[А-Яа-яЁё\s]{2,50}"
+                  title="Только русские буквы и пробелы (2-50 символов)"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ваш телефон</label>
+                <input
+                  type="tel"
+                  class="form-input"
+                  id="phone"
+                  required
+                  placeholder="+7 900 000 00 00"
+                  pattern="[\+\d\s\-\(\)]{10,20}"
+                  title="Введите корректный номер телефона"
+                />
+              </div>
+              <button type="submit" class="cta-button" style="width: 100%">
+                <i class="fas fa-paper-plane"></i>
+                Отправить заявку
+              </button>
+              <div id="formMessage" class="message"></div>
+              <p class="privacy-text">
+                Нажимая кнопку, вы соглашаетесь с
+                <a href="#" class="privacy-link"
+                  >обработкой персональных данных</a
+                >
+                и принимаете условия политики конфиденциальности
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кто мы -->
+    <section class="section about-section" id="who-we-are">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">
+          <i class="fas fa-users"></i>
+          Кто мы
+        </h2>
+        <div class="about-content">
+          <div class="about-text animate-on-scroll" id="aboutText">
+            <!-- Текст будет добавлен динамически -->
+          </div>
+          <div style="text-align: center">
+            <button
+              class="cta-button animate-on-scroll"
+              onclick="scrollToContact()"
+            >
+              <i class="fas fa-handshake"></i>
+              Связаться с нами
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Что мы делаем -->
+    <section class="section services-section" id="what-we-do">
+      <div class="container">
+        <div class="services-header">
+          <h2 class="section-title animate-on-scroll">
+            <i class="fas fa-cogs"></i>
+            Что мы настраиваем
+          </h2>
+          <p
+            class="animate-on-scroll"
+            style="
+              font-size: 20px;
+              color: var(--gold);
+              max-width: 800px;
+              margin: 0 auto;
+              line-height: 1.8;
+            "
+          >
+            Профессиональная настройка рекламных кампаний и создание
+            digital-решений для максимальной эффективности вашего бизнеса
+          </p>
+        </div>
+
+        <div class="services-divider"></div>
+
+        <div class="services-showcase" id="servicesShowcase">
+          <!-- Услуги будут добавлены динамически -->
+        </div>
+
+        <div class="services-divider"></div>
+
+        <h2 class="section-title animate-on-scroll" style="margin-top: 40px">
+          <i class="fas fa-chart-line"></i>
+          Наши тарифы
+        </h2>
+
+        <div class="tariffs-showcase" id="tariffsShowcase">
+          <!-- Тарифы будут добавлены динамически -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Как мы работаем -->
+    <section class="section faq-section" id="how-we-work">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">
+          <i class="fas fa-question-circle"></i>
+          Как мы работаем
+        </h2>
+        <p
+          class="animate-on-scroll"
+          style="
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 80px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--gold);
+          "
+        >
+          Отвечаем на ваши вопросы и снимаем все сомнения. Прозрачность и
+          качество — наш принцип работы.
+        </p>
+
+        <div class="faq-showcase" id="faqShowcase">
+          <!-- FAQ будет добавлен динамически -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll">
+          <i class="fas fa-paper-plane"></i>
+          Оставьте заявку
+        </h2>
+        <p
+          class="animate-on-scroll"
+          style="
+            font-size: 20px;
+            margin-bottom: 60px;
+            opacity: 0.9;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Мы свяжемся с вами в течение 15 минут для бесплатной консультации и
+          разработки индивидуального решения
+        </p>
+
+        <div class="contact-form-container animate-on-scroll">
+          <form id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-input"
+                id="contactName"
+                required
+                placeholder="Ваше имя"
+                pattern="[А-Яа-яЁё\s]{2,50}"
+                title="Только русские буквы и пробелы"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="tel"
+                class="form-input"
+                id="contactPhone"
+                required
+                placeholder="Ваш телефон"
+                pattern="[\+\d\s\-\(\)]{10,20}"
+                title="Введите корректный номер телефона"
+              />
+            </div>
+            <button
+              type="submit"
+              class="cta-button"
+              style="width: 100%; background: var(--gold); color: white"
+            >
+              <i class="fas fa-paper-plane"></i>
+              Отправить заявку
+            </button>
+            <div id="contactFormMessage" class="message"></div>
+            <p
+              style="
+                margin-top: 25px;
+                font-size: 14px;
+                opacity: 0.7;
+                text-align: center;
+              "
+            >
+              Ваши данные защищены и не будут переданы третьим лицам
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-logo">
+              <span>Bracnis</span>
+            </div>
+            <p class="footer-description">
+              Профессиональная студия веб-разработки и настройки рекламы в
+              Твери. Создаем и продвигаем ваш бизнес в digital-пространстве с
+              2018 года.
+            </p>
+            <a
+              href="tel:+79001100333"
+              style="
+                color: white;
+                font-size: 20px;
+                font-weight: 600;
+                text-decoration: none;
+                display: block;
+                margin-bottom: 20px;
+              "
+            >
+              <i class="fas fa-phone-alt"></i>
+              +7 900 110 03 33
+            </a>
+          </div>
+
+          <div>
+            <h3 class="footer-heading">
+              <i class="fas fa-tools"></i>
+              Услуги
+            </h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#what-we-do"
+                  ><i class="fas fa-code"></i> Создание сайтов</a
+                >
+              </li>
+              <li>
+                <a href="#what-we-do"
+                  ><i class="fas fa-bullhorn"></i> Настройка рекламы</a
+                >
+              </li>
+              <li>
+                <a href="#what-we-do"
+                  ><i class="fab fa-yandex"></i> Яндекс.Директ</a
+                >
+              </li>
+              <li>
+                <a href="#what-we-do"
+                  ><i class="fas fa-hashtag"></i> SMM продвижение</a
+                >
+              </li>
+              <li>
+                <a href="#what-we-do"
+                  ><i class="fas fa-comments"></i> Консультации</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="footer-heading">
+              <i class="fas fa-building"></i>
+              Компания
+            </h3>
+            <ul class="footer-links">
+              <li>
+                <a href="#who-we-are"
+                  ><i class="fas fa-info-circle"></i> О нас</a
+                >
+              </li>
+              <li>
+                <a href="#how-we-work"
+                  ><i class="fas fa-cogs"></i> Как работаем</a
+                >
+              </li>
+              <li>
+                <a href="#articles"><i class="fas fa-newspaper"></i> Статьи</a>
+              </li>
+              <li>
+                <a href="#contact"
+                  ><i class="fas fa-address-book"></i> Контакты</a
+                >
+              </li>
+              <li>
+                <a href="#" onclick="scrollToContact()"
+                  ><i class="fas fa-phone-volume"></i> Заказать звонок</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          © 2024 Bracnis Studio. Все права защищены.
+          <a
+            href="#"
+            style="
+              color: rgba(255, 255, 255, 0.6);
+              text-decoration: none;
+              margin-left: 20px;
+            "
+          >
+            <i class="fas fa-shield-alt"></i>
+            Политика конфиденциальности
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // XSS Protection - sanitize function
+      function sanitizeInput(input) {
+        if (typeof input !== "string") return "";
+        return input
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#x27;")
+          .replace(/\//g, "&#x2F;")
+          .replace(/\\/g, "&#x5C;")
+          .replace(/`/g, "&#96;");
+      }
+
+      // Данные для сайта
+      const siteData = {
+        aboutText: `Bracnis — это команда профессионалов в области digital-маркетинга и веб-разработки, основанная в Твери в 2018 году. Мы специализируемся на создании эффективных рекламных кампаний и современных веб-сайтов, которые приносят реальные результаты нашим клиентам.
+
+Наша миссия — помочь малому и среднему бизнесу выйти на новый уровень с помощью цифровых технологий. Мы не просто создаем сайты и настраиваем рекламу — мы строим полноценные sales-системы, которые работают 24/7, генерируя заявки и увеличивая прибыль.
+
+С нами вы получаете не просто исполнителя, а надежного партнера, который заинтересован в росте вашего бизнеса. Мы берем на себя все заботы о digital-продвижении, чтобы вы могли сосредоточиться на развитии своего дела.`,
+
+        services: [
+          {
+            icon: "🎯",
+            title: "Яндекс.Директ",
+            desc: "Профессиональная настройка и ведение контекстной рекламы. Максимальная эффективность каждого рубля бюджета.",
+          },
+          {
+            icon: "📱",
+            title: "Instagram Ads",
+            desc: "Создание и запуск таргетированных рекламных кампаний в Instagram. Привлечение целевой аудитории.",
+          },
+          {
+            icon: "✈️",
+            title: "Telegram Ads",
+            desc: "Продвижение бизнеса через Telegram. Каналы, боты и таргетированная реклама для вашей ЦА.",
+          },
+          {
+            icon: "🔍",
+            title: "Google Ads",
+            desc: "Настройка поисковой и медийной рекламы в Google. Привлечение клиентов на всех этапах воронки.",
+          },
+          {
+            icon: "💻",
+            title: "Веб-разработка",
+            desc: "Создание сайтов под ключ: от лендингов до корпоративных порталов и интернет-магазинов.",
+          },
+          {
+            icon: "📊",
+            title: "Аналитика и SEO",
+            desc: "Глубокий анализ эффективности и SEO-оптимизация. Постоянный рост позиций и трафика.",
+          },
+        ],
+
+        tariffs: [
+          {
+            name: "Кризис",
+            price: "20 000 ₽",
+            period: "в месяц",
+            badge: "ЭКОНОМИЯ",
+            colorClass: "tariff-1",
+            description: "Тариф для оптимизации существующих бюджетов",
+            features: [
+              "Анализ текущих рекламных кампаний",
+              "Оптимизация ставок и ключевых слов",
+              "Увеличение конверсии без роста бюджета",
+              "Еженедельные отчеты и аналитика",
+              "Настройка сквозной аналитики",
+              "Корректировка стратегии раз в неделю",
+            ],
+          },
+          {
+            name: "Стагнация",
+            price: "30 000 ₽",
+            period: "в месяц",
+            badge: "ПОПУЛЯРНЫЙ",
+            colorClass: "tariff-2",
+            description: "Удержание и укрепление позиций на рынке",
+            features: [
+              "Полное ведение рекламных кампаний",
+              "A/B тестирование объявлений и лендингов",
+              "Расширение целевой аудитории",
+              "Оптимизация посадочных страниц",
+              "Ежедневный мониторинг и корректировки",
+              "Еженедельные стратегические сессии",
+            ],
+          },
+          {
+            name: "Масштаб",
+            price: "40 000 ₽",
+            period: "в месяц",
+            badge: "ПРЕМИУМ",
+            colorClass: "tariff-3",
+            description: "Максимальный рост и масштабирование",
+            features: [
+              "Полное управление digital-маркетингом",
+              "Запуск в новых рекламных каналах",
+              "Интеграция CRM и автоматизация",
+              "Стратегия масштабирования бизнеса",
+              "Персональный менеджер 24/7",
+              "Ежемесячные бизнес-отчеты",
+            ],
+          },
+          {
+            name: "Тест",
+            price: "15 000 ₽",
+            period: "единоразово",
+            badge: "СТАРТ",
+            colorClass: "tariff-4",
+            description: "Единоразовая настройка для тестирования",
+            features: [
+              "Аудит текущей рекламы и сайта",
+              "Настройка одной рекламной кампании",
+              "Базовая аналитика и отчетность",
+              "Рекомендации по оптимизации",
+              "Тестирование гипотез на практике",
+              "Поддержка 2 недели после настройки",
+            ],
+          },
+          {
+            name: "Индивидуальный",
+            price: "Индивидуально",
+            period: "под проект",
+            badge: "VIP",
+            colorClass: "tariff-5",
+            description: "Персональное решение под ваши задачи",
+            features: [
+              "Индивидуальный подход и стратегия",
+              "Разработка уникальных решений",
+              "Интеграция любых сервисов и систем",
+              "Полное сопровождение проекта",
+              "Гибкие условия сотрудничества",
+              "Персональная команда специалистов",
+            ],
+          },
+        ],
+
+        faq: [
+          {
+            question: "Сколько времени занимает настройка рекламы?",
+            answer:
+              "Базовая настройка занимает от 3 до 7 рабочих дней, в зависимости от сложности проекта и выбранного тарифа. Мы всегда согласовываем сроки перед началом работ.",
+          },
+          {
+            question: "Как быстро я увижу первые результаты?",
+            answer:
+              "Первые результаты в виде заявок обычно появляются в течение 3-5 дней после запуска кампании. Пиковая эффективность достигается через 2-3 недели оптимизации.",
+          },
+          {
+            question: "Работаете ли вы с малым бизнесом?",
+            answer:
+              "Да, мы специально разработали несколько тарифов для разных бюджетов, включая оптимальные решения для малого бизнеса. Наш минимальный бюджет — от 15 000 рублей.",
+          },
+          {
+            question: "Предоставляете ли вы отчеты?",
+            answer:
+              "Да, мы предоставляем подробные отчеты о проделанной работе и результатах. Частота отчетности зависит от выбранного тарифа: от еженедельных до ежемесячных отчетов.",
+          },
+          {
+            question: "Можно ли изменить тариф в процессе работы?",
+            answer:
+              "Да, вы можете в любой момент перейти на другой тариф, если ваши задачи или бюджет изменились. Мы гибко подходим к изменениям условий сотрудничества.",
+          },
+          {
+            question: "Работаете ли вы только в Твери?",
+            answer:
+              "Мы базируемся в Твери, но успешно работаем с клиентами по всей России в онлайн-формате. Современные инструменты позволяют эффективно работать удаленно.",
+          },
+          {
+            question: "Какие гарантии вы предоставляете?",
+            answer:
+              "Мы гарантируем увеличение количества заявок и снижение стоимости привлечения клиента. В противном случае — бесплатная работа до достижения целевых показателей.",
+          },
+          {
+            question: "Как происходит оплата?",
+            answer:
+              "Оплата происходит по 50%: предоплата перед началом работ и окончательный расчет по завершении этапа. Для долгосрочных проектов возможна помесячная оплата.",
+          },
+        ],
+      };
+
+      // Инициализация при загрузке страницы
+      document.addEventListener("DOMContentLoaded", function () {
+        initBackgroundParticles();
+        initAboutText();
+        initServices();
+        initTariffs();
+        initFAQ();
+        initScrollAnimations();
+        initForms();
+        initMobileMenu();
+        initHeaderScroll();
+        initTypewriter();
+        initFloatingElements();
+
+        // CSRF токен для защиты форм
+        initCSRFToken();
+      });
+
+      // Анимация частиц фона
+      function initBackgroundParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.width = `${Math.random() * 20 + 5}px`;
+          particle.style.height = particle.style.width;
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.animationDelay = `${Math.random() * 20}s`;
+          particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+          particle.style.opacity = Math.random() * 0.1 + 0.05;
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Плавающие элементы
+      function initFloatingElements() {
+        const elements = document.querySelectorAll(".floating-element");
+        elements.forEach((el, index) => {
+          el.style.animationDelay = `${index * 5}s`;
+          el.style.opacity = Math.random() * 0.1 + 0.05;
+        });
+      }
+
+      // Инициализация текста "Кто мы"
+      function initAboutText() {
+        const aboutText = document.getElementById("aboutText");
+        const text = siteData.aboutText;
+        let index = 0;
+
+        function typeWriter() {
+          if (index < text.length) {
+            aboutText.innerHTML = text.substring(0, index + 1);
+            index++;
+            setTimeout(typeWriter, 15);
+          } else {
+            aboutText.classList.add("visible");
+          }
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              typeWriter();
+              observer.unobserve(aboutText);
+            }
+          },
+          { threshold: 0.1 },
+        );
+
+        observer.observe(aboutText);
+      }
+
+      // Инициализация услуг
+      function initServices() {
+        const servicesContainer = document.getElementById("servicesShowcase");
+
+        siteData.services.forEach((service, index) => {
+          const serviceCard = document.createElement("div");
+          serviceCard.className = "service-card";
+          serviceCard.style.transitionDelay = `${index * 0.1}s`;
+
+          serviceCard.innerHTML = `
+                    <div class="service-icon">${service.icon}</div>
+                    <h3 class="service-title">${service.title}</h3>
+                    <p class="service-description">${service.desc}</p>
+                    <button class="cta-button" onclick="scrollToContact()" style="width: 100%; padding: 12px; font-size: 14px;">
+                        <i class="fas fa-info-circle"></i>
+                        Подробнее
+                    </button>
+                `;
+
+          servicesContainer.appendChild(serviceCard);
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              if (entries[0].isIntersecting) {
+                serviceCard.classList.add("visible");
+                observer.unobserve(serviceCard);
+              }
+            },
+            { threshold: 0.1 },
+          );
+
+          observer.observe(serviceCard);
+        });
+      }
+
+      // Инициализация тарифов
+      function initTariffs() {
+        const tariffsContainer = document.getElementById("tariffsShowcase");
+
+        siteData.tariffs.forEach((tariff, index) => {
+          const tariffCard = document.createElement("div");
+          tariffCard.className = `tariff-card ${tariff.colorClass}`;
+          tariffCard.style.transitionDelay = `${index * 0.1}s`;
+
+          const featuresHtml = tariff.features
+            .map((feature) => `<li>${sanitizeInput(feature)}</li>`)
+            .join("");
+
+          tariffCard.innerHTML = `
+                    ${tariff.badge ? `<div class="tariff-badge">${tariff.badge}</div>` : ""}
+                    <div class="tariff-header">
+                        <h3 class="tariff-name">${sanitizeInput(tariff.name)}</h3>
+                        <div class="tariff-price">${sanitizeInput(tariff.price)}</div>
+                        <div class="tariff-period">${sanitizeInput(tariff.period)}</div>
+                    </div>
+                    <div class="tariff-body">
+                        <p class="tariff-description">${sanitizeInput(tariff.description)}</p>
+                        <ul class="tariff-features">
+                            ${featuresHtml}
+                        </ul>
+                        <button class="cta-button" onclick="scrollToContact()" style="width: 100%;">
+                            <i class="fas fa-check-circle"></i>
+                            Выбрать тариф
+                        </button>
+                    </div>
+                `;
+
+          tariffsContainer.appendChild(tariffCard);
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              if (entries[0].isIntersecting) {
+                tariffCard.classList.add("visible");
+                observer.unobserve(tariffCard);
+              }
+            },
+            { threshold: 0.1 },
+          );
+
+          observer.observe(tariffCard);
+        });
+      }
+
+      // Инициализация FAQ
+      function initFAQ() {
+        const faqContainer = document.getElementById("faqShowcase");
+
+        siteData.faq.forEach((item, index) => {
+          const faqItem = document.createElement("div");
+          faqItem.className = "faq-item";
+          faqItem.style.transitionDelay = `${index * 0.1}s`;
+
+          faqItem.innerHTML = `
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>${sanitizeInput(item.question)}</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>${sanitizeInput(item.answer)}</p>
+                    </div>
+                `;
+
+          faqContainer.appendChild(faqItem);
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              if (entries[0].isIntersecting) {
+                faqItem.classList.add("visible");
+                observer.unobserve(faqItem);
+              }
+            },
+            { threshold: 0.1 },
+          );
+
+          observer.observe(faqItem);
+        });
+      }
+
+      // Переключение FAQ
+      function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        const isActive = faqItem.classList.contains("active");
+
+        // Закрыть все остальные FAQ
+        document.querySelectorAll(".faq-item.active").forEach((item) => {
+          if (item !== faqItem) {
+            item.classList.remove("active");
+          }
+        });
+
+        // Переключить текущий FAQ
+        faqItem.classList.toggle("active");
+      }
+
+      // Typewriter effect
+      function initTypewriter() {
+        const texts = [
+          "Премиум решения для вашего бизнеса",
+          "Индивидуальный подход к каждому проекту",
+          "Результат, который превышает ожидания",
+          "Профессионализм и качество с 2018 года",
+        ];
+
+        let textIndex = 0;
+        const typewriterElement = document.querySelector(".typewriter-text");
+
+        function changeText() {
+          textIndex = (textIndex + 1) % texts.length;
+          typewriterElement.textContent = texts[textIndex];
+          typewriterElement.style.animation = "none";
+          setTimeout(() => {
+            typewriterElement.style.animation =
+              "typing 4s steps(40, end), blink-caret 0.75s step-end infinite";
+          }, 50);
+        }
+
+        // Меняем текст каждые 6 секунд
+        setInterval(changeText, 6000);
+      }
+
+      // Анимации при скролле
+      function initScrollAnimations() {
+        const elements = document.querySelectorAll(".animate-on-scroll");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+
+      // Инициализация CSRF токена
+      function initCSRFToken() {
+        const token = generateCSRFToken();
+        localStorage.setItem("csrf_token", token);
+      }
+
+      function generateCSRFToken() {
+        return (
+          "csrf_" + Math.random().toString(36).substr(2, 9) + "_" + Date.now()
+        );
+      }
+
+      // Защита от XSS - валидация формы
+      function validateFormData(data) {
+        const errors = [];
+
+        // Валидация имени
+        if (!data.name || data.name.length < 2 || data.name.length > 50) {
+          errors.push("Имя должно быть от 2 до 50 символов");
+        }
+
+        // Валидация телефона
+        const phoneRegex = /^[\+\d\s\-\(\)]{10,20}$/;
+        if (!data.phone || !phoneRegex.test(data.phone)) {
+          errors.push("Введите корректный номер телефона");
+        }
+
+        // Проверка на потенциальный XSS
+        const xssPatterns = [
+          /<script/i,
+          /javascript:/i,
+          /on\w+\s*=/,
+          /eval\(/i,
+        ];
+        xssPatterns.forEach((pattern) => {
+          if (pattern.test(data.name) || pattern.test(data.phone)) {
+            errors.push("Обнаружены недопустимые символы");
+          }
+        });
+
+        return errors;
+      }
+
+      // Инициализация форм с защитой
+      function initForms() {
+        // Основная форма
+        const mainForm = document.getElementById("mainForm");
+        const formMessage = document.getElementById("formMessage");
+
+        mainForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const name = sanitizeInput(
+            document.getElementById("name").value.trim(),
+          );
+          const phone = sanitizeInput(
+            document.getElementById("phone").value.trim(),
+          );
+
+          // Валидация
+          const errors = validateFormData({ name, phone });
+          if (errors.length > 0) {
+            showMessage(formMessage, errors.join(". "), "error");
+            return;
+          }
+
+          // Показываем индикатор загрузки
+          const submitBtn = mainForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.innerHTML = '<div class="loader"></div>';
+          submitBtn.disabled = true;
+
+          try {
+            // CSRF защита
+            const csrfToken =
+              localStorage.getItem("csrf_token") || generateCSRFToken();
+
+            // Отправка на API с защитой
+            const response = await fetch("/api/main", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken,
+                "X-Requested-With": "XMLHttpRequest",
+              },
+              body: JSON.stringify({
+                name: name,
+                number: phone,
+                _token: csrfToken,
+                timestamp: Date.now(),
+              }),
+              credentials: "same-origin",
+            });
+
+            // Проверка безопасности ответа
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+              throw new Error("Неверный формат ответа сервера");
+            }
+
+            const data = await response.json();
+
+            if (data.message === "ok") {
+              showMessage(
+                formMessage,
+                "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
+                "success",
+              );
+              mainForm.reset();
+              // Обновляем CSRF токен после успешной отправки
+              initCSRFToken();
+            } else {
+              showMessage(
+                formMessage,
+                "Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.",
+                "error",
+              );
+            }
+          } catch (error) {
+            console.error("Ошибка:", error);
+            showMessage(
+              formMessage,
+              "Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.",
+              "error",
+            );
+          } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+
+        // Контактная форма
+        const contactForm = document.getElementById("contactForm");
+        const contactFormMessage =
+          document.getElementById("contactFormMessage");
+
+        contactForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const name = sanitizeInput(
+            document.getElementById("contactName").value.trim(),
+          );
+          const phone = sanitizeInput(
+            document.getElementById("contactPhone").value.trim(),
+          );
+
+          // Валидация
+          const errors = validateFormData({ name, phone });
+          if (errors.length > 0) {
+            showMessage(contactFormMessage, errors.join(". "), "error");
+            return;
+          }
+
+          const submitBtn = contactForm.querySelector('button[type="submit"]');
+          const originalText = submitBtn.textContent;
+          submitBtn.innerHTML = '<div class="loader"></div>';
+          submitBtn.disabled = true;
+
+          try {
+            const csrfToken =
+              localStorage.getItem("csrf_token") || generateCSRFToken();
+
+            const response = await fetch("/api/main", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken,
+                "X-Requested-With": "XMLHttpRequest",
+              },
+              body: JSON.stringify({
+                name: name,
+                number: phone,
+                _token: csrfToken,
+                source: "contact_form",
+                timestamp: Date.now(),
+              }),
+              credentials: "same-origin",
+            });
+
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+              throw new Error("Неверный формат ответа сервера");
+            }
+
+            const data = await response.json();
+
+            if (data.message === "ok") {
+              showMessage(
+                contactFormMessage,
+                "Заявка успешно отправлена! Мы свяжемся с вами в течение 15 минут.",
+                "success",
+              );
+              contactForm.reset();
+              initCSRFToken();
+            } else {
+              showMessage(
+                contactFormMessage,
+                "Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.",
+                "error",
+              );
+            }
+          } catch (error) {
+            console.error("Ошибка:", error);
+            showMessage(
+              contactFormMessage,
+              "Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.",
+              "error",
+            );
+          } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+      }
+
+      // Показать сообщение
+      function showMessage(element, text, type) {
+        element.textContent = text;
+        element.className = `message ${type}`;
+
+        setTimeout(() => {
+          element.textContent = "";
+          element.className = "message";
+        }, 5000);
+      }
+
+      // Мобильное меню
+      function initMobileMenu() {
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          this.classList.toggle("active");
+          mobileMenu.classList.toggle("active");
+          document.body.style.overflow = mobileMenu.classList.contains("active")
+            ? "hidden"
+            : "";
+        });
+
+        // Закрытие по клику вне меню
+        document.addEventListener("click", function (event) {
+          if (
+            !mobileMenu.contains(event.target) &&
+            !mobileMenuBtn.contains(event.target) &&
+            mobileMenu.classList.contains("active")
+          ) {
+            closeMobileMenu();
+          }
+        });
+
+        // Закрытие по Escape
+        document.addEventListener("keydown", function (event) {
+          if (
+            event.key === "Escape" &&
+            mobileMenu.classList.contains("active")
+          ) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      function closeMobileMenu() {
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        mobileMenuBtn.classList.remove("active");
+        mobileMenu.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Скрытие/показ хедера при скролле
+      function initHeaderScroll() {
+        let lastScroll = 0;
+        const header = document.getElementById("header");
+
+        window.addEventListener(
+          "scroll",
+          function () {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+              header.classList.add("header-scrolled");
+            } else {
+              header.classList.remove("header-scrolled");
+            }
+
+            lastScroll = currentScroll;
+          },
+          { passive: true },
+        );
+      }
+
+      // Прокрутка к контактной форме
+      function scrollToContact() {
+        document.getElementById("contact").scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+
+      // Плавный скролл для якорей с защитой
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          // Проверка на XSS в URL
+          if (/[<>"']/.test(targetId)) {
+            console.warn("Потенциально опасный URL:", targetId);
+            return;
+          }
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+
+            // Закрываем мобильное меню при клике на ссылку
+            closeMobileMenu();
+          }
+        });
+      });
+
+      // Content Security Policy имитация
+      const cspViolationHandler = function (e) {
+        console.warn("CSP Violation:", e);
+      };
+
+      document.addEventListener("securitypolicyviolation", cspViolationHandler);
+
+      // Noopener для внешних ссылок
+      document.querySelectorAll('a[href^="http"]').forEach((link) => {
+        if (link.hostname !== window.location.hostname) {
+          link.setAttribute("rel", "noopener noreferrer");
+          link.setAttribute("target", "_blank");
+        }
+      });
+    </script>
+  </body>
+</html>
