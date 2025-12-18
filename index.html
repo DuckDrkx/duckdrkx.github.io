@@ -652,7 +652,8 @@
 
       @media (max-width: 768px) {
         .typewriter-container {
-          height: 60px;
+          height: auto;
+          min-height: 60px;
           margin-bottom: 30px;
         }
       }
@@ -663,8 +664,13 @@
         font-weight: 500;
         display: inline-block;
         border-right: 2px solid var(--gold);
-        white-space: nowrap;
+        white-space: normal;
         overflow: hidden;
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.5;
+        width: 100%;
         animation:
           typing 4s steps(40, end),
           blink-caret 0.75s step-end infinite;
@@ -673,6 +679,9 @@
       @media (max-width: 768px) {
         .typewriter-text {
           font-size: 18px;
+          line-height: 1.4;
+          white-space: normal;
+          display: block;
         }
       }
 
@@ -1461,12 +1470,17 @@
         margin: 0 auto;
         line-height: 1.8;
         word-break: break-word;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        opacity: 0.9;
       }
 
       @media (max-width: 768px) {
         .services-header p {
           font-size: 18px;
           padding: 0 15px;
+          line-height: 1.6;
         }
       }
 
@@ -2294,6 +2308,65 @@
           display: none;
         }
       }
+
+      /* Стили для параграфов в секциях */
+      .section-paragraph {
+        font-size: 20px;
+        color: var(--gold);
+        max-width: 800px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+        word-break: break-word;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .section-paragraph {
+          font-size: 18px;
+          padding: 0 15px;
+          line-height: 1.6;
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .section-paragraph {
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
+
+      .contact-section p {
+        font-size: 20px;
+        color: var(--gold);
+        max-width: 800px;
+        margin: 0 auto 60px;
+        line-height: 1.8;
+        word-break: break-word;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .contact-section p {
+          font-size: 18px;
+          padding: 0 15px;
+          line-height: 1.6;
+          margin-bottom: 40px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .contact-section p {
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2521,7 +2594,7 @@
             <i class="fas fa-cogs"></i>
             Что мы настраиваем
           </h2>
-          <p class="animate-on-scroll">
+          <p class="animate-on-scroll section-paragraph">
             Профессиональная настройка рекламных кампаний и создание
             digital-решений для максимальной эффективности вашего бизнеса
           </p>
@@ -2553,7 +2626,7 @@
           <i class="fas fa-question-circle"></i>
           Как мы работаем
         </h2>
-        <p class="animate-on-scroll">
+        <p class="animate-on-scroll section-paragraph">
           Отвечаем на ваши вопросы и снимаем все сомнения. Прозрачность и
           качество — наш принцип работы.
         </p>
@@ -2571,7 +2644,7 @@
           <i class="fas fa-paper-plane"></i>
           Оставьте заявку
         </h2>
-        <p class="animate-on-scroll">
+        <p class="animate-on-scroll section-paragraph">
           Мы свяжемся с вами в течение 15 минут для бесплатной консультации и
           разработки индивидуального решения
         </p>
